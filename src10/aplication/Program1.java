@@ -14,7 +14,7 @@ public class Program1 {
 
 		Double currentAccountValue = 0.0;
 		int accountNum;
-		String accountHolder, verificInitialDeposit;
+		String accountHolder, verific;
 		char confirm = 'y';
 
 		System.out.println("Enter account number: ");
@@ -23,8 +23,8 @@ public class Program1 {
 		sc.nextLine();
 		accountHolder = sc.nextLine();
 		System.out.println("Is there an initial deposit?\ntype yes or not");
-		verificInitialDeposit = sc.nextLine();
-		if (verificInitialDeposit.indexOf(confirm) != 1) {
+		verific = sc.nextLine();
+		if (verific.indexOf(confirm) != 1) {
 			System.out.println("Enter the inital deposit value: ");
 			currentAccountValue = sc.nextDouble();
 		}
@@ -47,14 +47,16 @@ public class Program1 {
 				case 2:
 					System.out.println("Amount to deposit into the account");
 					newValue = sc.nextDouble();
-					acc.setCurrentValue(Operation.depositAccount(currentAccountValue, newValue));
+					currentAccountValue = Operation.depositAccount(currentAccountValue, newValue);
+		            acc.setCurrentValue(currentAccountValue);
 					System.out.print("Updated " + acc);
 					x = false;
 					break;
 				case 3:
 					System.out.println("Ammount to withdraw from the account: ");
 					newValue = sc.nextDouble();
-					acc.setCurrentValue(Operation.withDrawAccount(currentAccountValue, newValue));
+					currentAccountValue = Operation.withDrawAccount(currentAccountValue, newValue);
+		            acc.setCurrentValue(currentAccountValue);
 					System.out.println("Updated " + acc);
 					x = false;
 					break;
@@ -71,9 +73,10 @@ public class Program1 {
 				}
 			}
 
-			System.out.println("\nDid you need one more operation?\ntype 1 for yes\ntype 2 for not");
-			int verifOpp = sc.nextInt();
-			if (verifOpp == 2) {
+			System.out.println("\nDid you need one more operation?\ntype yes or not");
+			sc.nextLine();
+			 verific = sc.nextLine();
+			if (verific.indexOf(confirm) != 1) {
 				y = false;
 			}
 		}

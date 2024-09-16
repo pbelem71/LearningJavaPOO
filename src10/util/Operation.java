@@ -1,10 +1,6 @@
 package util;
 
-import entities.Accounts;
-
 public class Operation {
-
-	static Accounts acc = new Accounts();
 
 	public static Double depositAccount(Double x, Double y) {
 		x += y;

@@ -6,7 +6,8 @@ public class Accounts {
 	private String nameAccount;
 	private Double currentValue;
 
-	public Accounts() {
+	public Accounts(Double currentValue) {
+		this.currentValue = currentValue;
 	}
 
 	public Accounts(int accountNum, String nameAccount, Double initialDeposit) {
@@ -23,12 +24,14 @@ public class Accounts {
 		return currentValue;
 	}
 
-	public void setCurrentValue(Double x) {
-		this.currentValue = x;
+	public void setCurrentValue(Double currentValue) {
+		this.currentValue = currentValue;
 	}
 
 	public String toString() {
-		return "Account data:\n" + "Account " + accountNum + ", Holder " + nameAccount + ", balance " + currentValue;
+		return String.format("Account data:%nAccount %s, Holder %s, Balance %.2f", accountNum, nameAccount,
+				currentValue);
+
 	}
 
 }
