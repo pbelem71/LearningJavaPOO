@@ -13,16 +13,18 @@ public class Program1 {
 		Scanner sc = new Scanner(System.in);
 
 		Double currentAccountValue = 0.0;
-		int accountNum, verificInitialDeposit;
-		String accountHolder;
+		int accountNum;
+		String accountHolder, verificInitialDeposit;
+		char confirm = 'y';
 
 		System.out.println("Enter account number: ");
 		accountNum = sc.nextInt();
 		System.out.println("Enter the account holder: ");
-		accountHolder = sc.next();
-		System.out.println("Is there na initial deposit?\ntype 1 for yes\ntype 2 for not");
-		verificInitialDeposit = sc.nextInt();
-		if (verificInitialDeposit == 1) {
+		sc.nextLine();
+		accountHolder = sc.nextLine();
+		System.out.println("Is there an initial deposit?\ntype yes or not");
+		verificInitialDeposit = sc.nextLine();
+		if (verificInitialDeposit.indexOf(confirm) != 1) {
 			System.out.println("Enter the inital deposit value: ");
 			currentAccountValue = sc.nextDouble();
 		}
@@ -67,7 +69,7 @@ public class Program1 {
 				}
 			}
 
-			System.out.println("Did you need one more operation?\ntype 1 for yes\ntype 2 for not");
+			System.out.println("\nDid you need one more operation?\ntype 1 for yes\ntype 2 for not");
 			int verifOpp = sc.nextInt();
 			if (verifOpp == 2) {
 				y = false;
