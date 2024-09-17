@@ -15,7 +15,7 @@ public class Program1 {
 		Double currentAccountValue = 0.0;
 		int accountNum;
 		String accountHolder;
-		char verific;
+		char verific, lowerCaseVerific;
 
 		System.out.println("Enter account number: ");
 		accountNum = sc.nextInt();
@@ -24,7 +24,8 @@ public class Program1 {
 		accountHolder = sc.nextLine();
 		System.out.println("Is there an initial deposit?\ntype yes or not");
 		verific = sc.next().charAt(0);
-		if (verific == 'y') {
+		lowerCaseVerific = Character.toLowerCase(verific);
+		if (lowerCaseVerific == 'y') {
 			System.out.println("Enter the inital deposit value: ");
 			currentAccountValue = sc.nextDouble();
 		}
@@ -78,7 +79,8 @@ public class Program1 {
 
 			System.out.println("\nDid you need one more operation?\ntype yes or not");
 			verific = sc.next().charAt(0);
-			if (verific == 'n') {
+			lowerCaseVerific = Character.toLowerCase(verific);
+			if (lowerCaseVerific == 'n') {
 				y = false;
 			}
 		}
