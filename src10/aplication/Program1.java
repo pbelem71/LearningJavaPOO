@@ -15,7 +15,7 @@ public class Program1 {
 		Double currentAccountValue = 0.0;
 		int accountNum;
 		String accountHolder;
-		char verific, lowerCaseVerific;
+		char verific;
 
 		System.out.println("Enter account number: ");
 		accountNum = sc.nextInt();
@@ -24,8 +24,7 @@ public class Program1 {
 		accountHolder = sc.nextLine();
 		System.out.println("Is there an initial deposit?\ntype yes or not");
 		verific = sc.next().charAt(0);
-		lowerCaseVerific = Character.toLowerCase(verific);
-		if (lowerCaseVerific == 'y') {
+		if (verific == 'y' || verific == 'Y') {
 			System.out.println("Enter the inital deposit value: ");
 			currentAccountValue = sc.nextDouble();
 		}
@@ -42,7 +41,7 @@ public class Program1 {
 				int ope = sc.nextInt();
 				switch (ope) {
 				case 1:
-					System.out.println(acc);
+					System.out.print(acc);
 					x = false;
 					break;
 				case 2:
@@ -58,7 +57,7 @@ public class Program1 {
 					newValue = sc.nextDouble();
 					currentAccountValue = Operation.withDrawAccount(currentAccountValue, newValue);
 					acc.setCurrentValue(currentAccountValue);
-					System.out.println("Updated " + acc);
+					System.out.print("Updated " + acc);
 					x = false;
 					break;
 				case 4:
@@ -66,26 +65,25 @@ public class Program1 {
 					sc.nextLine();
 					newName = sc.nextLine();
 					acc.setNameAccount(newName);
-					System.out.println("Updated " + acc);
+					System.out.print("Updated " + acc);
 					x = false;
 					break;
 				case 5:
 					x = false;
 					break;
 				default:
-					System.out.println("Invalid operation, try again");
+					System.out.print("Invalid operation, try again");
 				}
 			}
 
 			System.out.println("\nDid you need one more operation?\ntype yes or not");
 			verific = sc.next().charAt(0);
-			lowerCaseVerific = Character.toLowerCase(verific);
-			if (lowerCaseVerific == 'n') {
+			if (verific == 'n' || verific == 'Y') {
 				y = false;
 			}
 		}
 
-		System.out.println("Thank you for your preference");
+		System.out.print("Thank you for your preference");
 		sc.close();
 	}
 
